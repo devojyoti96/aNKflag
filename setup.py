@@ -34,11 +34,13 @@ np.save('LDPATH',LD_LIBRARY_PATH)
 os.chdir(cwd)
 try:
 	import casatools
+	print ('casatools==6.0.0.27 is already installed\n')
 except:
 	os.system('python3 -m pip install --index-url https://casa-pip.nrao.edu/repository/pypi-casa-release/simple casatools==6.0.0.27 --user')
 
 try:
 	import casatasks
+	print ('casatasks==6.0.0.27 is already installed\n')
 except:
 	os.system('python3 -m pip install --index-url https://casa-pip.nrao.edu/repository/pypi-casa-release/simple casatasks==6.0.0.27 --user')
 
