@@ -26,6 +26,15 @@ for i in range(len(lines)):
 makefil.seek(0)
 makefil.writelines(lines)
 makefil.close()
+
+makefil=open('Makefile','r+')
+lines=makefil.readlines()
+lines=lines[:18]
+makefil.seek(0)
+makefil.writelines(lines)
+makefil.close()
+
+
 if os.path.isfile('ankflag')==True:
 	os.system('make clean')
 os.system('make')
