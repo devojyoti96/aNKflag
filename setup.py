@@ -1,14 +1,14 @@
-
 from setuptools import setup
+import os,sys
+try:
+	import numpy as np
+except:
+	setup(install_requires=["numpy"])
 
-setup(install_requires=["numpy", "os", "astropy", "matplotlib", "scipy>=0.15.1"])
-
-
-import os,numpy as np,sys
-python_version=int(sys.version.split(' ')[0].split('.')[0])
+python_version=float('.'.join(sys.version.split(' ')[0].split('.')[:-1]))
 print ('Python version :'+str(sys.version.split(' ')[0]))
-if python_version!=3:
-	print ('Python version is less than 3. aNKflag can only run with python>3\n')	
+if python_version!=3.6:
+	print ('Python version is less than 3.6 or grater than 3.6. aNKflag can only run with python 3.6\n')	
 	os._exit(0)
 
 cwd=os.getcwd()

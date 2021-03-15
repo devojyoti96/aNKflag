@@ -6,7 +6,7 @@ Flagger is written by Apurba Bera, NCRA-TIFR, Pune, India
 
 python3 wrapper is developed by Devojyoti Kansabanik, NCRA-TIFR, Pune, India
 
-aNKflag will only work in python3
+aNKflag will only work in python3.6
 
 aNKflag requires GNU gsl library, which is provided locally
 
