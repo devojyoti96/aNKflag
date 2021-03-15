@@ -13,11 +13,17 @@ Code is written by Apurba Bera (NCRA-TIFR)
 Wrapper for PAIRCARS is written by Devojyoti Kansabanik, 23 Jan, 2021
 '''
 os.system('rm -rf casa*log')
+LDPATH=str(np.load('LDPATH.npy',allow_pickle=True))
+os.environ['LD_LIBRARY_PATH']=LDPATH
+
 class ANKFLAG():
 	def __init__(self):
 		pathname=os.path.dirname(os.path.realpath(inputs.__file__))
 		self.path=pathname
 		os.system('rm -rf casa*log')
+		LDPATH=str(np.load('LDPATH.npy',allow_pickle=True))
+		os.environ['LD_LIBRARY_PATH']=LDPATH
+
 
 	def flag_params(self,flagmode):
 		'''
