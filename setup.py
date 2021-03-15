@@ -1,7 +1,10 @@
-import os,numpy as np,sys
+
 from setuptools import setup
 
+setup(install_requires=["numpy", "os", "astropy", "matplotlib", "scipy>=0.15.1"])
 
+
+import os,numpy as np,sys
 python_version=int(sys.version.split(' ')[0].split('.')[0])
 print ('Python version :'+str(sys.version.split(' ')[0]))
 if python_version!=3:
