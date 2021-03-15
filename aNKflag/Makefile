@@ -16,6 +16,3 @@ ankflag:$(ANKOBJ)
 	$c $(ANKOBJ) $o $(CLIBS)
 clean:
 	rm ankflag
-
-
-
