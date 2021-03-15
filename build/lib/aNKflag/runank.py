@@ -39,8 +39,10 @@ class ANKFLAG():
 			return [['chan_ind','mean','median','re',1.8,0.0,1,'',0,0,0.0,0.0],['chan_ind','mean','median','im',1.8,0.0,1,'',0,0,0.0,0.0],\
 					['vis_ind','mean','median','re',1.8,0.0,1,'',0,0,0.0,0.0],['vis_ind','mean','median','im',1.8,0.0,1,'',0,0,0.0,0.0]]
 		elif flagmode==2:
-			return [['rec_ind','mean','median','re',1.8,0.0,1,'',0,0,0.0,0.0],['rec_ind','mean','median','im',1.8,0.0,1,'',0,0,0.0,0.0],\
-					['vis_ind','mean','median','re',1.8,0.0,1,'',0,0,0.0,0.0],['vis_ind','mean','median','im',1.8,0.0,1,'',0,0,0.0,0.0]]
+			return [['rec_ind','mean','median','re',1.8,0.0,1,'',0,0,0.0,0.0],['rec_ind','rms','median','re',1.8,0.0,1,'',0,0,0.0,0.0],\
+					['rec_ind','mean','median','im',1.8,0.0,1,'',0,0,0.0,0.0],['rec_ind','rms','median','im',1.8,0.0,1,'',0,0,0.0,0.0],\
+					['vis_ind','mean','median','re',1.8,0.0,1,'',0,0,0.0,0.0],['vis_ind','rms','median','re',1.8,0.0,1,'',0,0,0.0,0.0],\
+					['vis_ind','mean','median','im',1.8,0.0,1,'',0,0,0.0,0.0],['vis_ind','rms','median','im',1.8,0.0,1,'',0,0,0.0,0.0]]
 		else:
 			return [['chan_ind','mean','median','re',1.8,0.0,1,'',0,0,0.0,0.0],['chan_ind','rms','median','re',1.8,0.0,1,'',0,0,0.0,0.0],\
 					['chan_ind','mean','median','im',1.8,0.0,1,'',0,0,0.0,0.0],['chan_ind','rms','median','im',1.8,0.0,1,'',0,0,0.0,0.0],\
@@ -449,10 +451,7 @@ class ANKFLAG():
 					os.system('rm -rf '+inp_filepath+'/temp_aNKflag.ms')
 					tbank.open(inpfilename,nomodify=False)
 					if datacolumn=='corrected':
-						try:
-							tbank.putcol('CORRECTED_DATA',data)
-						except:
-							tbank.putcol('DATA',data)
+						tbank.putcol('CORRECTED_DATA',data)
 					elif datacolumn=='data':
 						tbank.putcol('DATA',data)
 					tbank.flush()
