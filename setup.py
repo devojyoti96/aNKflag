@@ -52,8 +52,7 @@ setup(
     packages=['aNKflag'],
     author='Apurba Bera, Python wrapper by Devojyoti Kansabanik',
     description='Flagger',
-    install_requires=["numpy", "astropy", "skyfield", "matplotlib", "scipy>=0.15.1"],
-    extras_require={'skymap':["ephem", "Pillow"]}   # Needed only to generate sky maps in mwa_pb/skymap.py
-)
+    install_requires=["numpy", "astropy", "matplotlib", "scipy>=0.15.1"],
+    )
 
 
