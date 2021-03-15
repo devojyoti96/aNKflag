@@ -13,18 +13,12 @@ Code is written by Apurba Bera (NCRA-TIFR)
 Wrapper for PAIRCARS is written by Devojyoti Kansabanik, 23 Jan, 2021
 '''
 os.system('rm -rf casa*log')
-LDPATH=str(np.load('LDPATH.npy',allow_pickle=True))
-os.environ['LD_LIBRARY_PATH']=LDPATH
-
 class ANKFLAG():
 	def __init__(self):
 		pathname=os.path.dirname(os.path.realpath(inputs.__file__))
 		self.path=pathname
 		os.system('rm -rf casa*log')
-		LDPATH=str(np.load('LDPATH.npy',allow_pickle=True))
-		os.environ['LD_LIBRARY_PATH']=LDPATH
-
-
+		
 	def flag_params(self,flagmode):
 		'''
 		Function to generate flag parameters based on number of channels and timeslices in the dataset
@@ -110,13 +104,15 @@ class ANKFLAG():
 		CONVERTFITS		=	inputs.CONVERTFITS											#	Convert FITS to binary ?	
 		DOFLAG			=	inputs.DOFLAG											#	Do flagging ?
 		FLAGMODE		=	inputs.FLAGMODE 									#	'baseline' / 'uvbin' 
-		BASEFLAGMEAN	=	inputs.BASEFLAGMEAN		#	[FLAGON,	tolerance_mean,	tolearnce_rms,	min fraction]]			ONLY for 'baseline'
+		BASEFLAGMEAN		=	inputs.BASEFLAGMEAN		#	[FLAGON,	tolerance_mean,	tolearnce_rms,	min fraction]]			ONLY for 'baseline'
 		READBACK		=	inputs.READBACK											#	Read back baselines ?
 		SHOWBASE		=	inputs.SHOWBASE											#	SHOW baseline stats ?
 		SHOWTF			=	inputs.SHOWTF											#	Show time-frequency plots ?
 		WRITEOUT		=	inputs.WRITEOUT											#	Write output ?
 		BLOCKPOW		=	inputs.BLOCKPOW											#	Power low for Block non-Gaussianity (DON'T CHANGE UNLESS YOU KNOW WHAT IT IS !)
 		os.chdir(self.path)
+		LDPATH='/home/devojyoti/aNKflag/gsl/lib'
+		os.environ['LD_LIBRARY_PATH']=LDPATH
 		cwd=os.getcwd()
 		os.system('rm -rf casa*log')
 		kwords=list(kwargs.keys())
@@ -469,6 +465,7 @@ class ANKFLAG():
 		os.chdir(pwd)
 		os.system('rm -rf casa*log')
 		return finalout
+
 
 
 
