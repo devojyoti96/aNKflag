@@ -13,7 +13,7 @@ LD_LIBRARY_PATH=cwd+'/gsl/lib'
 INCLUDE_PATH=cwd+'/gsl/include/'
 
 os.chdir(cwd+'/aNKflag')
-makefil=open('Makefile','r+')
+makefil=open('Makefile','r')
 lines=makefil.readlines()
 for i in range(len(lines)):
 	if 'GSL_INCLUDE_DIR=' in lines[i]:
@@ -23,16 +23,13 @@ for i in range(len(lines)):
 	if 'GSL_LIBRARIES=' in lines[i]:
 		lines[i]='GSL_LIBRARIES=-L'+LD_LIBRARY_PATH+' -Wl,\"-R '+LD_LIBRARY_PATH+'\"\n'
 
-makefil.seek(0)
-makefil.writelines(lines)
 makefil.close()
 
-makefil=open('Makefile','r+')
-lines=makefil.readlines()
 lines=lines[:18]
-makefil.seek(0)
-makefil.writelines(lines)
-makefil.close()
+with open("Makefile", "w") as output:
+    for line in lines:
+        output.write(line)
+output.close()
 
 
 if os.path.isfile('ankflag')==True:
