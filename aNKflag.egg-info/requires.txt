@@ -1,4 +1,0 @@
-numpy
-astropy
-matplotlib
-scipy>=0.15.1
