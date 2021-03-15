@@ -1,15 +1,16 @@
 from setuptools import setup
 import os,sys
-try:
-	import numpy as np
-except:
-	setup(install_requires=["numpy"])
-
 python_version=float('.'.join(sys.version.split(' ')[0].split('.')[:-1]))
 print ('Python version :'+str(sys.version.split(' ')[0]))
 if python_version!=3.6:
 	print ('Python version is less than 3.6 or grater than 3.6. aNKflag can only run with python 3.6\n')	
 	os._exit(0)
+
+
+try:
+	import numpy as np
+except:
+	os.system('python3.6 -m pip install numpy')
 
 cwd=os.getcwd()
 LD_LIBRARY_PATH=cwd+'/gsl/lib'
@@ -44,13 +45,13 @@ try:
 	import casatools
 	print ('casatools is already installed\n')
 except:
-	os.system('python3 -m pip install --index-url https://casa-pip.nrao.edu/repository/pypi-casa-release/simple casatools --user')
+	os.system('python3.6 -m pip install --index-url https://casa-pip.nrao.edu/repository/pypi-casa-release/simple casatools --user')
 
 try:
 	import casatasks
 	print ('casatasks is already installed\n')
 except:
-	os.system('python3 -m pip install --index-url https://casa-pip.nrao.edu/repository/pypi-casa-release/simple casatasks --user')
+	os.system('python3.6 -m pip install --index-url https://casa-pip.nrao.edu/repository/pypi-casa-release/simple casatasks --user')
 
 os.system('rm -rf casa*log')
 
