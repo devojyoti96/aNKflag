@@ -112,6 +112,8 @@ class ANKFLAG():
 		WRITEOUT		=	inputs.WRITEOUT											#	Write output ?
 		BLOCKPOW		=	inputs.BLOCKPOW											#	Power low for Block non-Gaussianity (DON'T CHANGE UNLESS YOU KNOW WHAT IT IS !)
 		os.chdir(self.path)
+		LDPATH=str(np.load('LDPATH.npy',allow_pickle=True))
+		os.environ['LD_LIBRARY_PATH']=LDPATH
 		cwd=os.getcwd()
 		os.system('rm -rf casa*log')
 		kwords=list(kwargs.keys())
@@ -463,6 +465,7 @@ class ANKFLAG():
 		os.system('rm -rf casa*log')
 		os.chdir(pwd)
 		os.system('rm -rf casa*log')
+		os.unsetenv('LD_LIBRARY_PATH')
 		return finalout
 
 

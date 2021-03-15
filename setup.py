@@ -29,7 +29,6 @@ makefil.close()
 if os.path.isfile('ankflag')==True:
 	os.system('make clean')
 os.system('make')
-
 np.save('LDPATH',LD_LIBRARY_PATH)
 os.chdir(cwd)
 try:
@@ -50,9 +49,11 @@ setup(
     name='aNKflag',
     version='1.0',
     packages=['aNKflag'],
+	package_data={'aNKflag':['aNKflag/*.c', 'aNKflag/*.npy', 'aNKflag/ankflag', 'aNKflag/*.h','aNKflag/*.dat']},
     author='Apurba Bera, Python wrapper by Devojyoti Kansabanik',
     description='Flagger',
     install_requires=["numpy", "astropy", "matplotlib", "scipy>=0.15.1"],
     )
-
+final_library_path='~/.local/lib/python3.6/site-packages/aNKflag-1.0-py3.6.egg/aNKflag'
+os.system('cp -r '+cwd+'/aNKflag/*.c '+cwd+'/aNKflag/*.h '+cwd+'/aNKflag/ankflag '+cwd+'/aNKflag/*.dat '+cwd+'/aNKflag/*.npy '+final_library_path)
 
