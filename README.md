@@ -2,9 +2,7 @@
 aNKflag v1.0
 =============
 
-Flagger is written by Apurba Bera, NCRA-TIFR, Pune, India
-
-python3 wrapper is developed by Devojyoti Kansabanik, NCRA-TIFR, Pune, India
+This is developed by Devojyoti Kansabanik and Apurba Bera.
 
 aNKflag will only work in python3.6
 
